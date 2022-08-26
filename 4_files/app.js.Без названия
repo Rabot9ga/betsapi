@@ -1,0 +1,129 @@
+$(document).ready(function() {
+    // timezone
+    var change_tz = function(tz) {
+        $('[data-dt]').each(function(i, v) {
+            var mtz = moment($(v).attr('data-dt'));
+
+            var dt_format = $(v).attr('data-dt-format');
+            if (! dt_format) dt_format = 'MM/DD HH:mm';
+            if (dt_format == 'MM/DD HH:mm') {
+                if (moment().diff(mtz, 'days') > 365) {
+                    $(v).text(mtz.clone().tz(tz).format('YYYY-MM-DD'));
+                } else {
+                    $(v).text(mtz.clone().tz(tz).format(dt_format));
+                }
+            } else {
+                $(v).text(mtz.clone().tz(tz).format(dt_format));
+            }
+        });
+    };
+
+    var guess_tz = moment.tz.guess();
+    var $timezone_picker = $('#timezone_picker');
+    $timezone_picker.prepend('<option value="' + guess_tz + '">' + guess_tz + '</option>');
+
+    // ['Africa/Abidjan', 'Africa/Algiers', 'Africa/Cairo', 'Africa/Casablanca', 'Africa/Johannesburg', 'Africa/Khartoum', 'Africa/Lagos', 'Africa/Maputo', 'Africa/Tripoli', 'America/Adak', 'America/Anchorage', 'America/Argentina/Buenos_Aires', 'America/Campo_Grande', 'America/Chicago', 'America/Chihuahua', 'America/Denve', 'America/Fortaleza', 'America/Halifax', 'America/Los_Angeles', 'America/Managua', 'America/Manaus', 'America/Mexico_City', 'America/New_York', 'America/Noronha', 'America/Panama', 'America/Phoenix', 'America/Rio_Branco', 'America/Santiago', 'America/Santo_Domingo', 'America/Sao_Paulo', 'America/St_Johns', 'Asia/Almaty']
+    var option_html = '';
+    var timezones = moment.tz.names();
+    for (var i = 0; i < timezones.length; i++) {
+        option_html += '<option value="' + timezones[i] + '">' + timezones[i] + '</option>';
+    }
+    $timezone_picker.append(option_html);
+
+    $timezone_picker.removeClass('hide');
+    $timezone_picker.on('change', function() {
+        $.cookie('tz', this.value);
+        change_tz(this.value);
+    });
+
+    var cookie_tz = $.cookie('tz');
+    if (! cookie_tz) {
+        cookie_tz = guess_tz;
+        $.cookie('tz', cookie_tz); // set tz cookie for PHP
+    }
+    $timezone_picker.val(cookie_tz);
+    change_tz(cookie_tz);
+
+    $.ajaxSetup({
+        statusCode: {
+            401: function(){
+                window.location = '/login';
+            }
+        }
+    });
+
+    // Toggle fav
+    FL.FavEvent = function($ele) {
+        var $i = $ele.find('i');
+        var eid = $ele.attr('data-fav');
+        var url = $i.hasClass('fa-heart-o') ? '/ea/fav' : '/ea/unfav';
+        $.post(url, { 'event_id': eid, "csrf_token": FL.csrf_token }, function(res) {
+            $i.toggleClass('fa-heart-o').toggleClass('fa-heart');
+        }, 'json');
+    };
+    $('a[data-fav]').on('click', function() {
+        FL.FavEvent($(this));
+    });
+
+    FL.EditNote = function($ele) {
+        var $i = $ele.find('i');
+        var eid = $ele.attr('data-note');
+        var note = prompt("Note:");
+        $.post('/ea/note', { 'event_id': eid, 'note': note, "csrf_token": FL.csrf_token }, function(res) {
+            $i.removeClass('fa-sticky-note-o').addClass('fa-sticky-note');
+        }, 'json');
+    };
+    $('a[data-note]').on('click', function() {
+        FL.EditNote($(this));
+    });
+
+    $('a[data-subscribe], a[data-unsubscribe]').on('click', function() {
+        var $ele = $(this);
+        var url  = $ele.data('unsubscribe') ? '/ea/unsub' : '/ea/sub';
+        var data = $ele.data('unsubscribe') ? $ele.data('unsubscribe') : $ele.data('subscribe');
+        $.post(url + '?' + data, { "csrf_token": FL.csrf_token }, function(res) {
+            if (res.error) {
+                alert(res.error);
+            } else {
+                $ele.removeClass('btn-danger').addClass('btn-success');
+            }
+        }, 'json');
+    });
+
+    // charts
+    FL.chart_options = {
+        chart: { type: 'spline' },
+        exporting: { enabled: false },
+        xAxis: {
+            max: 95,
+            tickInterval: 1
+        },
+        yAxis: {
+            title: { text: '' },
+            min: 0,
+            tickInterval: 1
+        },
+        plotOptions: {
+            enableMouseTracking: false, shadow: false, animation: false,
+            spline: {
+                marker: {
+                    enabled: true
+                }
+            }
+        },
+        tooltip: {
+            crosshairs: true,
+            shared: true
+        },
+        credits: { enabled: false },
+        series: []
+    };
+
+    // BS4/tabler
+    /** Function for collapse card */
+    $('[data-toggle="card-collapse"]').on('click', function(e) {
+      $(this).closest('div.card').toggleClass('card-collapsed');
+      e.preventDefault();
+      return false;
+    });
+});
