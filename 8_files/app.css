@@ -1,0 +1,346 @@
+a.nav-link.soccer.active,
+a.nav-link.soccer.active:hover,
+a.nav-link.soccer.active:focus {
+  background-color: transparent;
+  border-bottom: 5px solid #25765C;
+  padding-bottom: 10px;
+}
+
+a.nav-link.basketball.active,
+a.nav-link.basketball.active:hover,
+a.nav-link.basketball.active:focus {
+  background-color: transparent;
+  border-bottom: 5px solid #C18C00;
+  padding-bottom: 10px;
+}
+
+a.nav-link.tennis.active,
+a.nav-link.tennis.active:hover,
+a.nav-link.tennis.active:focus {
+  background-color: transparent;
+  border-bottom: 5px solid #5F6E37;
+  padding-bottom: 10px;
+}
+
+a.nav-link.snooker.active,
+a.nav-link.snooker.active:hover,
+a.nav-link.snooker.active:focus {
+  background-color: transparent;
+  border-bottom: 5px solid #5F6E37;
+  padding-bottom: 10px;
+}
+
+a.nav-link.volleyball.active,
+a.nav-link.volleyball.active:hover,
+a.nav-link.volleyball.active:focus {
+  background-color: transparent;
+  border-bottom: 5px solid #857563;
+  padding-bottom: 10px;
+}
+
+a.nav-link.table_tennis.active,
+a.nav-link.table_tennis.active:hover,
+a.nav-link.table_tennis.active:focus {
+  background-color: transparent;
+  border-bottom: 5px solid #396188;
+  padding-bottom: 10px;
+}
+
+a.nav-link.badminton.active,
+a.nav-link.badminton.active:hover,
+a.nav-link.badminton.active:focus {
+  background-color: transparent;
+  border-bottom: 5px solid #4C7D8B;
+  padding-bottom: 10px;
+}
+
+a.nav-link.ice_hockey.active,
+a.nav-link.ice_hockey.active:hover,
+a.nav-link.ice_hockey.active:focus {
+  background-color: transparent;
+  border-bottom: 5px solid #CCCCCC;
+}
+
+a.nav-link.baseball.active,
+a.nav-link.baseball.active:hover,
+a.nav-link.baseball.active:focus {
+  background-color: transparent;
+  border-bottom: 5px solid #A15D38;
+  padding-bottom: 10px;
+}
+
+.twitterProfieBanner {
+  position:relative;
+  height:280px;
+  width:100%;
+  max-width:2560px;
+  transition:height .3s;
+  padding-bottom:60px;
+  overflow:hidden;
+}
+.twitterProfieBanner img {
+  position:absolute;
+  left:0;
+  right:0;
+  top:-9999px;
+  bottom:-9999px;
+  width:100%;
+  margin:auto 0;
+}
+
+.race-time {
+  color: #f04124 !important;
+}
+.race-time sup {
+  color: #25765C !important;
+}
+
+.fa-arrow-down {
+  color: #f04124 !important;
+}
+.fa-arrow-up {
+  color: #25765C !important;
+}
+
+.team_img {
+  display: inline-block;
+  width: 140px;
+  height: 140px;
+  padding: 20px;
+  background: #fff;
+  border-radius: 8px;
+  text-align: center!important;
+  box-shadow: 0 0 8px #999;
+  margin-bottom: 30px;
+}
+.team_img img {
+  max-width: 100px;
+  max-height: 100px;
+}
+.team_name {
+  text-align: center!important;
+  font-size: 16px;
+}
+
+table td.league_n {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 94px;
+}
+@media (min-width: 576px) {
+  table td.league_n {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 220px;
+  }
+}
+
+table td.sport_n {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 100px;
+}
+table td.dt_n {
+  max-width: 94px;
+}
+
+.badge_W, .badge_D, .badge_L {
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+  width: 30px;
+  font-weight: bold;
+  padding: 0;
+  color: #FFF;
+  border-radius: 3px;
+}
+.badge_W {
+  background: #5eba00 !important;
+}
+.badge_D {
+  background: #f1c40f !important;
+}
+.badge_L {
+  background: #cd201f !important;
+}
+
+/* timeline */
+.TimelineBar {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    position: relative;
+    padding: 0 5px;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1 1 100%;
+    -ms-flex: 1 1 100%;
+    flex: 1 1 100%;
+    min-height: 44px
+}
+@media (min-width: 950px) {
+    .TimelineBar {
+        padding: 0 8px
+    }
+}
+.TimelineBar_Inner {
+    border-radius: 2px;
+    background-color: #585858;
+    height: 8px;
+    width: 100%;
+    position: relative
+}
+.TimelineBar_Fill {
+    position: absolute;
+    height: 8px;
+    left: 0;
+    top: 0;
+    background-color: #318743;
+    width: 0;
+    border-radius: 2px
+}
+.TimelineBar_Time {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    height: 30px;
+    min-width: 32px;
+    position: absolute;
+    border-radius: 1px;
+    left: 50%;
+    margin-left: -16px;
+    top: -11px;
+    background-color: #ccc;
+    color: #545454;
+    font-size: 11px;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center
+}
+@media (min-width: 950px) {
+    .TimelineBar_Time {
+        background-color: #393939;
+        color: #bbb
+    }
+}
+.TimelineEvent_TeamHome,
+.TimelineEvent_TeamAway {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background-size: 20px auto;
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
+    background-image: url(/images/ico/timeline.svg);
+    background-repeat: no-repeat;
+    background-position: -4px -3px
+}
+.TimelineEvent_TeamHome.TimelineEvent_Icon-5,
+.TimelineEvent_TeamAway.TimelineEvent_Icon-5 {
+    background-position: -3px -23px
+}
+.TimelineEvent_TeamHome.TimelineEvent_Icon-4,
+.TimelineEvent_TeamAway.TimelineEvent_Icon-4 {
+    background-position: -3px -42px
+}
+.TimelineEvent_TeamHome.TimelineEvent_Icon-1,
+.TimelineEvent_TeamAway.TimelineEvent_Icon-1 {
+    display: none
+}
+.TimelineEvent_TeamHome {
+    top: -7px
+}
+.TimelineEvent_TeamAway {
+    bottom: -5px
+}
+
+.logo_s {
+  max-width: 20px;
+  max-height: 20px;
+}
+
+.ico_card {
+  height: 16.8px;
+  width: 16.8px;
+}
+
+.text-home {
+  color: #cd201f !important;
+}
+
+a.text-home:hover,
+a.text-home:focus {
+  color: #8b1615 !important;
+}
+
+.bg-home {
+  background-color: #cd201f !important;
+}
+
+a.bg-home:hover,
+a.bg-home:focus,
+button.bg-home:hover,
+button.bg-home:focus {
+  background-color: #8b1615 !important;
+}
+
+.bl-home {
+  border-left: 1px solid #cd201f;
+}
+
+.text-away {
+  color: #45aaf2 !important;
+}
+
+a.text-away:hover,
+a.text-away:focus {
+  color: #0f86db !important;
+}
+
+.bg-away {
+  background-color: #45aaf2 !important;
+}
+
+a.bg-away:hover,
+a.bg-away:focus,
+button.bg-away:hover,
+button.bg-away:focus {
+  background-color: #0f86db !important;
+}
+
+.bl-away {
+  border-left: 1px solid #45aaf2;
+}
+
+.promotioncolor_pro, .promotioncolor_promotion{border-left:5px solid #fd6}
+.promotioncolor_playoff{border-left:5px solid #85c020}
+.promotioncolor_pro_pl, .promotioncolor_promotionplayoff{border-left:5px solid #ebb805}
+.promotioncolor_finalfour{border-left:5px solid #bce379}
+.promotioncolor_cl{border-left:5px solid #66b0d6}
+.promotioncolor_clq{border-left:5px solid #0573ac}
+.promotioncolor_caf_conf, .promotioncolor_uefa{border-left:5px solid #98e9fb}
+.promotioncolor_uefaq{border-left:5px solid #4fc9e5}
+.promotioncolor_rel, .promotioncolor_relegation{border-left:5px solid #eb0618}
+.promotioncolor_rel_pl, .promotioncolor_relegationplayoff{border-left:5px solid #ff6673}
+
+.w-9r { width: 9rem; }
+.ml-9r { margin-left: 9.5rem; }
+
+.wikipedia-body {
+  max-height: 250px;
+  overflow: auto;
+}
