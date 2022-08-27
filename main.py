@@ -11,7 +11,7 @@ def adding_a(time, c):
         a[time] = c
 
 
-for k in range(1, 2):
+for k in range(1, 15):
     with open('html\\'+str(k) + '.html', 'r', encoding='utf-8') as f:
         soup = BeautifulSoup(f.read(), 'html.parser')
         for i in range(0, 24):
