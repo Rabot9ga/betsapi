@@ -8,8 +8,8 @@ header={
     'upgrade-insecure-requests': '1'
 }
 
-for i in range(1, 4):
-    req=requests.get('https://betsapi.com/cs/soccer/p.'+str(i)+'?skipE=1', headers=header)
-    print('https://betsapi.com/cs/soccer/p.'+str(i)+'?skipE=1')
-    with open('html\\'+str(i)+'.html', 'w', encoding='utf-8') as file:
+for i in range(1, 2):
+    req=requests.get('https://betsapi.com/ls/22614/Esoccer-Battle--8-mins-play/p.'+str(i), headers=header)
+    print('https://betsapi.com/ls/22614/Esoccer-Battle--8-mins-play/p.'+str(i))
+    with open('html\\'+str(i)+'e.html', 'w', encoding='utf-8') as file:
         file.write(req.text)
