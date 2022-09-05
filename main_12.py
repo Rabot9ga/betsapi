@@ -11,7 +11,7 @@ def adding_a(time, c):
         a[time] = c
 
 
-for k in range(1, 3):
+for k in range(1, 4):
     with open('html\\' + str(k) + '12.html', 'r', encoding='utf-8') as f:
         print(f)
         soup = BeautifulSoup(f.read(), 'html.parser')
@@ -37,6 +37,8 @@ for k in range(1, 3):
                     time = str(i) + ':' + str(j)
                     if c:
                         adding_a(time, c)
+
+print(a)
 
 with open('final_12.txt', 'w') as file:
     for i in a:
