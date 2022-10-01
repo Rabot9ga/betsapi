@@ -2,13 +2,13 @@ import tkinter, tkinter.messagebox
 import requests
 import main
 import main_tennis
-
+import counting_pages
 
 root=tkinter.Tk()
-root.geometry('500x500')
+root.geometry('500x200')
 
 
-canvas=tkinter.Canvas(root, height=500, width=500)
+canvas=tkinter.Canvas(root, height=500, width=200)
 canvas.pack()
 
 frame=tkinter.Frame(root)
@@ -19,17 +19,17 @@ title=tkinter.Label(frame, text='cookie: ', font=50)
 title.place(x=10, y=10)
 
 
-title=tkinter.Label(frame, text='pages soccer: ', font=50)
-title.place(x=10, y=40)
-pagessoccerField=tkinter.Entry(frame, bg='white', width=60)
-pagessoccerField.place(x=120, y=42)
-
-
-
-title=tkinter.Label(frame, text='pages tennis: ', font=50)
-title.place(x=10, y=70)
-pagestenField=tkinter.Entry(frame, bg='white', width=60)
-pagestenField.place(x=120, y=72)
+# title=tkinter.Label(frame, text='pages soccer: ', font=50)
+# title.place(x=10, y=40)
+# pagessoccerField=tkinter.Entry(frame, bg='white', width=60)
+# pagessoccerField.place(x=120, y=42)
+#
+#
+#
+# title=tkinter.Label(frame, text='pages tennis: ', font=50)
+# title.place(x=10, y=70)
+# pagestenField=tkinter.Entry(frame, bg='white', width=60)
+# pagestenField.place(x=120, y=72)
 
 
 
@@ -41,11 +41,9 @@ cookieField.place(x=120, y=12)
 
 
 def button_main():
-    pages_soc_str = pagessoccerField.get()
-    pages_ten_str = pagestenField.get()
     cookies = cookieField.get()
-    pages_ten = int(pages_ten_str)
-    pages_soc = int(pages_soc_str)
+    pages_soc = counting_pages.searching_pages_count_football(cookies)
+    pages_ten = counting_pages.searching_pages_count_tennis(cookies)
     print(pages_soc, pages_ten, cookies)
 
     header = {
@@ -75,7 +73,7 @@ def button_main():
     tkinter.messagebox.showinfo(title='Success', message='Time for tennis and soccer is created')
 
 btn=tkinter.Button(frame, text='Create results', width=30, command=button_main)
-btn.place(x=150, y=450)
+btn.place(x=150, y=150)
 
 
 # for i in range(1, 3):
